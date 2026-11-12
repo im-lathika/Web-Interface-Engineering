@@ -1,0 +1,20 @@
+.header {
+  background: linear-gradient(135deg, #123c69, #1d5d91);
+  color: white;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header-title {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.header-subtitle {
+  margin: 7px 0 0;
+  font-size: 15px;
+  color: #dbeeff;
+}

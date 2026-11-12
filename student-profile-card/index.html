@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile Card</title>
+</head>
+<body>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+            background:linear-gradient(135deg,#74ebd5,#ACB6E5);
+        }
+
+        .container{
+            width:420px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 10px 20px rgba(0,0,0,0.3);
+            text-align:center;
+        }
+
+        h1{
+            color:#0d47a1;
+            margin-bottom:20px;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            margin:10px 0;
+            border:2px solid #ccc;
+            border-radius:8px;
+            font-size:16px;
+            transition:0.3s;
+        }
+
+        input:focus{
+            border-color:#007BFF;
+            outline:none;
+            box-shadow:0 0 8px rgba(0,123,255,0.4);
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            margin-top:10px;
+            background:#007BFF;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:17px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#0056b3;
+            transform:scale(1.03);
+        }
+
+        .card{
+            display:none;
+            margin-top:25px;
+            padding:20px;
+            background:#f8fbff;
+            border-radius:12px;
+            border-left:6px solid #007BFF;
+            box-shadow:0 5px 15px rgba(0,0,0,0.2);
+            animation:fadeIn 0.6s ease;
+        }
+
+        .card h2{
+            color:#007BFF;
+            margin-bottom:15px;
+        }
+
+        .card p{
+            font-size:18px;
+            margin:10px 0;
+            text-align:left;
+        }
+
+        .card span{
+            font-weight:bold;
+            color:#333;
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform:translateY(20px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Student Profile Card</h1>
+
+    <input type="text" id="name" placeholder="Enter Student Name">
+
+    <input type="text" id="roll" placeholder="Enter Roll Number">
+
+    <input type="number" id="marks" placeholder="Enter Student Marks">
+
+    <button id="displayBtn">Display Profile</button>
+
+    <div class="card" id="profileCard">
+
+        <h2>Student Details</h2>
+
+        <p><strong>Name :</strong> <span id="displayName"></span></p>
+
+        <p><strong>Roll No :</strong> <span id="displayRoll"></span></p>
+
+        <p><strong>Marks :</strong> <span id="displayMarks"></span></p>
+
+        <p><strong>Grade :</strong> <span id="displayGrade"></span></p>
+
+    </div>
+
+</div>
+
+<script>
+
+let displayBtn = document.getElementById("displayBtn");
+
+displayBtn.addEventListener("click", function(){
+
+    let name = document.getElementById("name").value;
+    let roll = document.getElementById("roll").value;
+    let marks = Number(document.getElementById("marks").value);
+
+    if(name=="" || roll=="" || marks==""){
+        alert("Please fill all the fields");
+        return;
+    }
+    if(marks < 0 || marks > 100){
+    alert("Invalid input");
+    return;
+}
+
+    let grade;
+
+    if(marks>=90){
+        grade="A+";
+    }
+    else if(marks>=80){
+        grade="A";
+    }
+    else if(marks>=70){
+        grade="B";
+    }
+    else if(marks>=60){
+        grade="C";
+    }
+    else if(marks>=50){
+        grade="D";
+    }
+    else{
+        grade="F";
+    }
+
+    document.getElementById("displayName").textContent=name;
+    document.getElementById("displayRoll").textContent=roll;
+    document.getElementById("displayMarks").textContent=marks;
+    document.getElementById("displayGrade").textContent=grade;
+    document.getElementById("profileCard").style.display="block";
+
+});
+
+</script>
+
+</body>
+</html>
